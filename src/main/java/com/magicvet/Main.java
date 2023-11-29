@@ -1,22 +1,31 @@
 package main.java.com.magicvet;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
+
+    static String PASSWORD = "default";
+    static Scanner SCANNER = new Scanner(System.in);
+
     public static void main(String[] args) {
+        run();
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a text: ");
-        String inputText = scanner.nextLine();
+    static void run() {
+        boolean accepted = false;
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Password: ");
+            String input = SCANNER.nextLine();
 
-        String pattern = "\\+\\d{1}-\\d{3}-\\d{3}-\\d{4}";
-        Pattern compiledPattern = Pattern.compile(pattern);
-        Matcher matcher = compiledPattern.matcher(inputText);
-        while (matcher.find()){
-            System.out.println(matcher.group());
+            if (PASSWORD.equals(input)) {
+                accepted = true;
+                break;
+            } else {
+                System.out.println("Access denied. Please check your password.");
+            }
         }
+
+        System.out.println(accepted ? "Welcome to the Magic Vet!" : "Application has been blocked.");
     }
 }
 
