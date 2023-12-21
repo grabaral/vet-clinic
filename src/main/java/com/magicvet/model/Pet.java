@@ -7,6 +7,16 @@ public class Pet {
     private String name;
     private String ownerName;
 
+    @Override
+    public String toString(){
+        return "Pet {"
+                +"\n\ttype = " + type
+                +", name = " + name
+                +", sex = " + sex
+                +",age = " + age
+                +"\n\t}";
+    }
+
     public String getName() {
         return name;
     }
@@ -39,9 +49,6 @@ public class Pet {
         this.age = age;
     }
 
-    public String getOwnerName() {
-        return ownerName;
-    }
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
