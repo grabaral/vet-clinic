@@ -5,7 +5,6 @@ public class Pet {
     private String sex;
     private String age;
     private String name;
-    private String ownerName;
 
     @Override
     public String toString(){
@@ -50,7 +49,5 @@ public class Pet {
     }
 
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
+
 }
