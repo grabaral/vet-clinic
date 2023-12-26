@@ -1,10 +1,12 @@
 package main.java.com.magicvet.model;
 
-public class Pet {
+public abstract class Pet {
     private String type;
     private String sex;
     private String age;
     private String name;
+
+    private String ownerName;
 
     @Override
     public String toString(){
@@ -47,7 +49,7 @@ public class Pet {
     public void setAge(String age) {
         this.age = age;
     }
-
-
-
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 }
