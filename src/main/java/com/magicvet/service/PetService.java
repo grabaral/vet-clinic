@@ -25,7 +25,7 @@ public class PetService {
         pet.setType(type);
 
         System.out.print("Age: ");
-        pet.setAge(Main.SCANNER.nextInt());
+        pet.setAge(Integer.parseInt(Main.SCANNER.nextLine()));
 
         System.out.print("Name: ");
         pet.setName(Main.SCANNER.nextLine());
