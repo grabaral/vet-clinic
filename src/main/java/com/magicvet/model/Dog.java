@@ -10,6 +10,7 @@ public class Dog extends Pet{
 
     public Dog(){}
 
+
     public Dog(Size size){
         this.size = size;
     }
@@ -22,14 +23,14 @@ public class Dog extends Pet{
     public String toString(){
         return "Pet {"
                 +"\n\ttype = " + getType()
-                +", name = " + getName()
                 +", sex = " + getSex()
-                +",age = " + getAge()
-                +",size = " + size
+                +", age = " + getAge()
+                +", name = " + getName()
+                +", size = " + getSize()
+                +", ownerName = " + getOwnerName()
+                +", registrationDate = " + getRegistrationDate().format(FORMATTER)
                 +"\n\t}";
     }
-
-
 
     public void setSize(Size size) {
         this.size = size;
@@ -46,6 +47,24 @@ public class Dog extends Pet{
         private final int value;
         Size(int value){
             this.value = value;
+        }
+
+        public static Size fromString(String value){
+           /*for (Size size : values()){
+                if(size.toString().equals(value)){
+                    return size;
+                }
+            }
+            System.out.println("Unable to parse value '"+value+"'. Using default value: "+UNKNOWN);
+            return UNKNOWN;*/
+            Size size;
+            try {
+                size = Size.valueOf(value);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Unable to parse value '"+value+"'. Using default value: "+UNKNOWN);
+                size = Size.UNKNOWN;
+            }
+            return size;
         }
 
         public int getValue() {
